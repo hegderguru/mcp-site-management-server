@@ -11,14 +11,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SiteRequestResponse {
+public class SiteResponse {
     private Long id;
     private String identifier;
     private String number;
     private String name;
-    private LocationResponse location;
-    private AddressResponse address;
-    private List<OwnerResponse> owners;
+    private LocationResponse locationResponse;
+    private AddressResponse addressResponse;
+    private List<OwnerResponse> ownersResponse;
     private RegistrationResponse currentRegistrationResponse;
     private List<RegistrationResponse> previousRegistrationResponses;
 }
