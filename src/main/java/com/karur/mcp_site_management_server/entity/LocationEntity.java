@@ -15,8 +15,8 @@ public class LocationEntity {
     @SequenceGenerator(name = "location_seq_gen", sequenceName = "location_sequence_id", allocationSize = 1)
     private Long id;
 
-    private Long longitude;
-    private Long latitude;
+    @Column(unique = true)
+    private String longitudeAndLatitude;
 
     @Column(columnDefinition = "TEXT")
     private String border;
