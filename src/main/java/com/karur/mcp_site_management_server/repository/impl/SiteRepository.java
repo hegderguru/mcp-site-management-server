@@ -13,7 +13,11 @@ public class SiteRepository {
     @Autowired
     ISiteRepository iSiteRepository;
 
-    public Optional<SiteEntity> findByIdentifier(String identifier){
+    public Optional<SiteEntity> findByIdentifier(String identifier) {
         return iSiteRepository.findByIdentifier(identifier);
+    }
+
+    public void save(SiteEntity siteEntity) {
+        iSiteRepository.save(siteEntity);
     }
 }

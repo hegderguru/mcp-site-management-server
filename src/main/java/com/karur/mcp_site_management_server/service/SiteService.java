@@ -3,9 +3,9 @@ package com.karur.mcp_site_management_server.service;
 import com.karur.mcp_site_management_server.compare.CompareUtil;
 import com.karur.mcp_site_management_server.entity.SiteEntity;
 import com.karur.mcp_site_management_server.mapper.EntityToRequestMapper;
+import com.karur.mcp_site_management_server.mapper.RequestToEntityMapper;
 import com.karur.mcp_site_management_server.model.request.SiteRequest;
 import com.karur.mcp_site_management_server.repository.impl.SiteRepository;
-import com.karur.mcp_site_management_server.repository.intrf.ISiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -36,6 +36,7 @@ public class SiteService {
     }
 
     private void create(SiteRequest siteRequest) {
-
+        SiteEntity siteEntity = RequestToEntityMapper.buildCompleteSite(siteRequest);
+        siteRepository.save(siteEntity);
     }
 }
