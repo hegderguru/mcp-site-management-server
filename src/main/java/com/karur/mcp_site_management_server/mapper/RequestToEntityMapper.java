@@ -96,7 +96,7 @@ public class RequestToEntityMapper {
     private static OwnerEntity buildCompleteOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
-                .identityEntity(buildIdentityEntity(ownerRequest.getIdentityRequest()))
+                .identityEntity(buildCompleteIdentityEntity(ownerRequest.getIdentityRequest()))
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
                 .lastName(ownerRequest.getLastName())
