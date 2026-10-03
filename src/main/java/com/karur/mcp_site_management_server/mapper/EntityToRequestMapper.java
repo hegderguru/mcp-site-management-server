@@ -71,7 +71,7 @@ public class EntityToRequestMapper {
     private static LocationRequest buildLocationRequest(LocationEntity locationEntity) {
         return LocationRequest.builder()
                 .id(locationEntity.getId())
-                .latitude(locationEntity.getLatitude())
+                .longitudeAndLatitude(locationEntity.getLongitudeAndLatitude())
                 .border(locationEntity.getBorder())
                 .build();
     }
