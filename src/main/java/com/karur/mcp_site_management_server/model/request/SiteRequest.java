@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.util.List;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -13,7 +13,7 @@ public class SiteRequest {
 
     private Long id;
 
-    @EqualsAndHashCode.Include
+
     private String identifier;
     private String number;
     private String name;

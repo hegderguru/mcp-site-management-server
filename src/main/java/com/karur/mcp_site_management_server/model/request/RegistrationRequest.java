@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -13,16 +13,16 @@ import java.util.List;
 public class RegistrationRequest {
     private Long id;
 
-    @EqualsAndHashCode.Include
+
     private String identifier;
 
-    @EqualsAndHashCode.Include
+
     private LocalDateTime registrationDateTime;
 
-    @EqualsAndHashCode.Include
+
     private List<OwnerRequest> currentOwnerRequests;
 
-    @EqualsAndHashCode.Include
+
     private List<SiteRequest> siteRequests;
 }
 

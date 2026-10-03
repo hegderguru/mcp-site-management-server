@@ -3,7 +3,7 @@ package com.karur.mcp_site_management_server.model.request;
 import com.karur.mcp_site_management_server.entity.IdentityEntity;
 import lombok.*;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -17,6 +17,6 @@ public class OwnerRequest {
     private AddressRequest PermanentAddress;
     private Integer order;
 
-    @EqualsAndHashCode.Include
+
     private IdentityEntity identityEntity;
 }
