@@ -1,6 +1,5 @@
 package com.karur.mcp_site_management_server.model.response;
 
-import com.karur.mcp_site_management_server.entity.IdentityEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,9 +14,14 @@ public class OwnerResponse {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String email;
+    private String phone;
+    private String aadhar;
+    private String panCard;
+    private String idNameAndValue;
+
     private AddressResponse primaryAddress;
     private AddressResponse PermanentAddress;
     private Integer order;
-    private IdentityEntity identityEntity;
 
 }

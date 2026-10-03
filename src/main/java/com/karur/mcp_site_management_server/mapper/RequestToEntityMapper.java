@@ -31,18 +31,13 @@ public class RequestToEntityMapper {
                 .id(ownerRequest.getId())
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
+                .email(ownerRequest.getEmail())
+                .phone(ownerRequest.getPhone())
+                .panCard(ownerRequest.getPanCard())
+                .aadhar(ownerRequest.getAadhar())
+                .idNameAndValue(ownerRequest.getIdNameAndValue())
                 .lastName(ownerRequest.getLastName())
                 .order(ownerRequest.getOrder())
-                .build();
-    }
-
-    private static IdentityEntity buildIdentityEntity(IdentityRequest identityRequest) {
-        return IdentityEntity.builder()
-                .id(identityRequest.getId())
-                .aadhar(identityRequest.getAadhar())
-                .panCard(identityRequest.getPanCard())
-                .idName(identityRequest.getIdName())
-                .idValue(identityRequest.getIdValue())
                 .build();
     }
 
@@ -95,23 +90,17 @@ public class RequestToEntityMapper {
     private static OwnerEntity buildCompleteOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
-                .identityEntity(buildCompleteIdentityEntity(ownerRequest.getIdentityRequest()))
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
                 .lastName(ownerRequest.getLastName())
+                .email(ownerRequest.getEmail())
+                .phone(ownerRequest.getPhone())
+                .aadhar(ownerRequest.getAadhar())
+                .panCard(ownerRequest.getPanCard())
+                .idNameAndValue(ownerRequest.getIdNameAndValue())
                 .primaryAddressEntity(buildCompleteAddress(ownerRequest.getPrimaryAddress()))
                 .permanentAddressEntity(buildCompleteAddress(ownerRequest.getPermanentAddress()))
                 .order(ownerRequest.getOrder())
-                .build();
-    }
-
-    private static IdentityEntity buildCompleteIdentityEntity(IdentityRequest identityRequest) {
-        return IdentityEntity.builder()
-                .id(identityRequest.getId())
-                .aadhar(identityRequest.getAadhar())
-                .panCard(identityRequest.getPanCard())
-                .idName(identityRequest.getIdName())
-                .idValue(identityRequest.getIdValue())
                 .build();
     }
 

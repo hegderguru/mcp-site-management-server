@@ -19,6 +19,11 @@ public class OwnerEntity {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String email;
+    private String phone;
+    private String aadhar;
+    private String panCard;
+    private String idNameAndValue;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "primary_address_id")
@@ -30,8 +35,4 @@ public class OwnerEntity {
 
     @Column(name = "owner_order")
     private Integer order;
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "identity_id")
-    private IdentityEntity identityEntity;
 }

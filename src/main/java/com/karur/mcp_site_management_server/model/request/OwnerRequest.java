@@ -1,7 +1,6 @@
 package com.karur.mcp_site_management_server.model.request;
 
 import com.karur.mcp_site_management_server.compare.DiffId;
-import com.karur.mcp_site_management_server.entity.IdentityEntity;
 import lombok.*;
 
 
@@ -18,9 +17,13 @@ public class OwnerRequest {
     private String middleName;
     @DiffId
     private String lastName;
+    private String email;
+    private String phone;
+    private String aadhar;
+    private String panCard;
+    private String idNameAndValue;
+
     private AddressRequest primaryAddress;
     private AddressRequest PermanentAddress;
     private Integer order;
-
-    private IdentityRequest identityRequest;
 }
