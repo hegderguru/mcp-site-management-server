@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Site {
+public class SiteEntity {
     private Long id;
 
     private String identifier;
