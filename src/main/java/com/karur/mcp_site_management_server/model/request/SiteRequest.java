@@ -17,8 +17,8 @@ public class SiteRequest {
     private String identifier;
     private String number;
     private String name;
-    private LocationRequest location;
-    private AddressRequest address;
-    private List<OwnerRequest> owners;
+    private LocationRequest locationRequest;
+    private AddressRequest addressRequest;
+    private List<OwnerRequest> ownersRequests;
     private RegistrationRequest currentRegistrationRequest;
 }
