@@ -1,9 +1,6 @@
 package com.karur.mcp_site_management_server.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @Data
@@ -11,8 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Identity {
     private Long id;
+
+    @EqualsAndHashCode.Include
     private String aadhar;
+
+    @EqualsAndHashCode.Include
     private String panCard;
+    
     private String idName;
     private String idValue;
 }

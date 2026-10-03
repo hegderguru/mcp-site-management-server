@@ -1,9 +1,6 @@
 package com.karur.mcp_site_management_server.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,7 +10,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Site {
     private Long id;
+
+    @EqualsAndHashCode.Include
     private String identifier;
+
     private String number;
     private String name;
     private Location location;
