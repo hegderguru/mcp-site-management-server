@@ -1,6 +1,6 @@
 package com.karur.mcp_site_management_server.entity;
 
-import lombok.EqualsAndHashCode;
+import com.karur.mcp_site_management_server.model.request.OwnerRequest;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,15 +8,8 @@ import java.util.List;
 public class Registration {
     private Long id;
 
-    @EqualsAndHashCode.Include
     private String identifier;
-
-    @EqualsAndHashCode.Include
     private LocalDateTime registrationDateTime;
-
-    @EqualsAndHashCode.Include
-    private List<Owner> previousOwners;
-
-    @EqualsAndHashCode.Include
-    private List<Owner> currentOwners;
+    private List<OwnerRequest> previousOwners;
+    private List<OwnerRequest> currentOwners;
 }
