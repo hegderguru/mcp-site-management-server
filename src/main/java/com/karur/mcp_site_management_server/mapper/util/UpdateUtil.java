@@ -1,9 +1,19 @@
 package com.karur.mcp_site_management_server.mapper.util;
 
+import com.karur.mcp_site_management_server.util.CommonUtil;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.List;
 
 public class UpdateUtil {
+
+    public <T> void update(List<T> exitingList, T update){
+        List<T> list = exitingList.stream().filter(t -> t.equals(update)).toList();
+        if(list.size()>1){
+            throw new RuntimeException("duplicates found for %s".formatted(CommonUtil.toString(update)));
+        }
+    }
 
     public <T> void update(T existing, T update) {
         if (existing == null || update == null) {
