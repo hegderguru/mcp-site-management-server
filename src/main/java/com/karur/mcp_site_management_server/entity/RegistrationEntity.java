@@ -19,9 +19,9 @@ public class RegistrationEntity {
     private Long id;
 
     private String identifier;
-
     private LocalDateTime registrationDateTime;
 
+    // Owning side (defines the join table)
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_current_owners",
@@ -30,6 +30,7 @@ public class RegistrationEntity {
     )
     private List<OwnerEntity> currentOwnerEntities;
 
+    // Owning side (defines the join table)
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_sites",
@@ -38,7 +39,11 @@ public class RegistrationEntity {
     )
     private List<SiteEntity> siteEntities;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "registration_id")
+    // Owning side of the OneToMany (points to mappedBy target 'registration' field in child)
+    @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<RegistrationAuditEntity> registrationAuditEntities;
+
+    // Inverse side of SiteEntity's currentRegistrationEntity mapping
+    @OneToOne(mappedBy = "currentRegistrationEntity")
+    private SiteEntity activeSite;
 }
