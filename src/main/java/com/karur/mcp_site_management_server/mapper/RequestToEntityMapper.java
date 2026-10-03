@@ -64,8 +64,7 @@ public class RequestToEntityMapper {
     private static LocationEntity buildLocation(LocationRequest locationRequest) {
         return LocationEntity.builder()
                 .id(locationRequest.getId())
-                .latitude(locationRequest.getLatitude())
-                .longitude(locationRequest.getLongitude())
+                .longitudeAndLatitude(locationRequest.getLatitude() + ":" + locationRequest.getLongitude())
                 .border(locationRequest.getBorder())
                 .build();
     }
@@ -134,8 +133,7 @@ public class RequestToEntityMapper {
     private static LocationEntity buildCompleteLocation(LocationRequest locationRequest) {
         return LocationEntity.builder()
                 .id(locationRequest.getId())
-                .latitude(locationRequest.getLatitude())
-                .longitude(locationRequest.getLongitude())
+                .longitudeAndLatitude(locationRequest.getLatitude() + ":" + locationRequest.getLongitude())
                 .border(locationRequest.getBorder())
                 .build();
     }
