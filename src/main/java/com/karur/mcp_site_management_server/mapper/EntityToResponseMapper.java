@@ -26,6 +26,17 @@ public class EntityToResponseMapper {
                 .registrationDateTime(registrationEntity.getRegistrationDateTime())
                 .currentOwnerResponses(registrationEntity.getCurrentOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .siteResponses(registrationEntity.getSiteEntities().stream().map(EntityToResponseMapper::buildSiteResponse).toList())
+                .registrationAuditResponses(registrationEntity.getRegistrationAuditEntities().stream().map(EntityToResponseMapper::buildRegistrationAuditResponse).toList())
+                .build();
+    }
+
+    private static RegistrationAuditResponse buildRegistrationAuditResponse(RegistrationAuditEntity registrationAuditEntity) {
+        return RegistrationAuditResponse.builder()
+                .id(registrationAuditEntity.getId())
+                .identifier(registrationAuditEntity.getIdentifier())
+                .registrationDateTime(registrationAuditEntity.getRegistrationDateTime())
+                .siteResponses(registrationAuditEntity.getSiteEntities().stream().map(EntityToResponseMapper::buildSiteResponse).toList())
+                .previousOwnerResponses(registrationAuditEntity.getPreviousOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .build();
     }
 
