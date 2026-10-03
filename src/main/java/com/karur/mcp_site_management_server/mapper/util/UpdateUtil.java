@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UpdateUtil {
 
-    public <T> boolean existsIn(List<T> list, T check) {
+    public static  <T> boolean existsIn(List<T> list, T check) {
         return list.stream().anyMatch(t -> t.equals(check));
     }
 
@@ -20,7 +20,7 @@ public class UpdateUtil {
         update(list.get(0), update);
     }
 
-    public <T> void update(T existing, T update) {
+    public static <T> void update(T existing, T update) {
         if (existing == null || update == null) {
             return;
         }
@@ -47,7 +47,7 @@ public class UpdateUtil {
         }
     }
 
-    private boolean isSimpleType(Class<?> type) {
+    private static boolean isSimpleType(Class<?> type) {
         return type.isPrimitive() ||
                 type == String.class ||
                 type == Integer.class ||
