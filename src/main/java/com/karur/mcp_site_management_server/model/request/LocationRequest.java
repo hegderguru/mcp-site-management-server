@@ -12,10 +12,9 @@ import java.util.List;
 public class LocationRequest {
 
     private Long id;
+
     @DiffId
-    private Long longitude;
-    @DiffId
-    private Long latitude;
+    private String longitudeAndLatitude;
 
     private String border;
 }
