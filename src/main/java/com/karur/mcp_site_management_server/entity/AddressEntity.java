@@ -2,13 +2,11 @@ package com.karur.mcp_site_management_server.entity;
 
 import lombok.*;
 
-import java.util.Objects;
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Address {
+public class AddressEntity {
     private Long id;
     private String number;
     private String name;

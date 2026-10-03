@@ -1,6 +1,6 @@
 package com.karur.mcp_site_management_server.model.request;
 
-import com.karur.mcp_site_management_server.entity.Identity;
+import com.karur.mcp_site_management_server.entity.IdentityEntity;
 import lombok.*;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -18,5 +18,5 @@ public class OwnerRequest {
     private Integer order;
 
     @EqualsAndHashCode.Include
-    private Identity identity;
+    private IdentityEntity identityEntity;
 }

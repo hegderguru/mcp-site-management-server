@@ -6,14 +6,14 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Owner {
+public class OwnerEntity {
     private Long id;
 
     private String firstName;
     private String middleName;
     private String lastName;
-    private Address primaryAddress;
-    private Address PermanentAddress;
+    private AddressEntity primaryAddressEntity;
+    private AddressEntity permanentAddressEntity;
     private Integer order;
-    private Identity identity;
+    private IdentityEntity identityEntity;
 }

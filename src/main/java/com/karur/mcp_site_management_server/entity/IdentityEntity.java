@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Identity {
+public class IdentityEntity {
     private Long id;
     private String aadhar;
     private String panCard;

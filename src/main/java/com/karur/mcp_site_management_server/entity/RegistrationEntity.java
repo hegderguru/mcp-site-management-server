@@ -1,6 +1,5 @@
 package com.karur.mcp_site_management_server.entity;
 
-import com.karur.mcp_site_management_server.model.request.OwnerRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,11 +13,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Registration {
+public class RegistrationEntity {
     private Long id;
 
     private String identifier;
     private LocalDateTime registrationDateTime;
-    private List<Owner> previousOwners;
-    private List<Owner> currentOwners;
+    private List<OwnerEntity> previousOwnerEntities;
+    private List<OwnerEntity> currentOwnerEntities;
 }

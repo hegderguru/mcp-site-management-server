@@ -13,38 +13,38 @@ public class RequestToEntityMapper {
                 .identifier(siteRequest.getIdentifier())
                 .name(siteRequest.getName())
                 .number(siteRequest.getNumber())
-                .location(buildLocation(siteRequest.getLocationRequest()))
-                .address(buildAddress(siteRequest.getAddressRequest()))
-                .owners(siteRequest.getOwnersRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
-                .currentRegistration(buildRegistration(siteRequest.getCurrentRegistrationRequest()))
+                .locationEntity(buildLocation(siteRequest.getLocationRequest()))
+                .addressEntity(buildAddress(siteRequest.getAddressRequest()))
+                .ownerEntities(siteRequest.getOwnersRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
+                .currentRegistrationEntity(buildRegistration(siteRequest.getCurrentRegistrationRequest()))
                 .build();
     }
 
-    private static Registration buildRegistration(RegistrationRequest registrationRequest) {
-        return Registration.builder()
+    private static RegistrationEntity buildRegistration(RegistrationRequest registrationRequest) {
+        return RegistrationEntity.builder()
                 .id(registrationRequest.getId())
                 .identifier(registrationRequest.getIdentifier())
                 .registrationDateTime(registrationRequest.getRegistrationDateTime())
-                .currentOwners(registrationRequest.getCurrentOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
-                .previousOwners(registrationRequest.getPreviousOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
+                .currentOwnerEntities(registrationRequest.getCurrentOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
+                .previousOwnerEntities(registrationRequest.getPreviousOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
                 .build();
     }
 
-    private static Owner buildOwner(OwnerRequest ownerRequest) {
-        return Owner.builder()
+    private static OwnerEntity buildOwner(OwnerRequest ownerRequest) {
+        return OwnerEntity.builder()
                 .id(ownerRequest.getId())
-                .identity(ownerRequest.getIdentity())
+                .identityEntity(ownerRequest.getIdentityEntity())
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
                 .lastName(ownerRequest.getLastName())
-                .primaryAddress(buildAddress(ownerRequest.getPrimaryAddress()))
-                .PermanentAddress(buildAddress(ownerRequest.getPermanentAddress()))
+                .primaryAddressEntity(buildAddress(ownerRequest.getPrimaryAddress()))
+                .permanentAddressEntity(buildAddress(ownerRequest.getPermanentAddress()))
                 .order(ownerRequest.getOrder())
                 .build();
     }
 
-    private static Address buildAddress(AddressRequest addressRequest) {
-        return Address.builder()
+    private static AddressEntity buildAddress(AddressRequest addressRequest) {
+        return AddressEntity.builder()
                 .id(addressRequest.getId())
                 .number(addressRequest.getNumber())
                 .name(addressRequest.getName())
@@ -58,8 +58,8 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static Location buildLocation(LocationRequest locationRequest) {
-        return Location.builder()
+    private static LocationEntity buildLocation(LocationRequest locationRequest) {
+        return LocationEntity.builder()
                 .id(locationRequest.getId())
                 .latitude(locationRequest.getLatitude())
                 .longitude(locationRequest.getLongitude())

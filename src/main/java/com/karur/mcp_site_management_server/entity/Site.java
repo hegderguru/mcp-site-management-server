@@ -15,9 +15,9 @@ public class Site {
 
     private String number;
     private String name;
-    private Location location;
-    private Address address;
-    private List<Owner> owners;
-    private Registration currentRegistration;
-    private List<Registration> allRegistrations;
+    private LocationEntity locationEntity;
+    private AddressEntity addressEntity;
+    private List<OwnerEntity> ownerEntities;
+    private RegistrationEntity currentRegistrationEntity;
+    private List<RegistrationEntity> allRegistrationEntities;
 }

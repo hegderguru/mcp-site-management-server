@@ -13,57 +13,57 @@ public class EntityToResponseMapper {
                 .identifier(site.getIdentifier())
                 .name(site.getName())
                 .number(site.getNumber())
-                .locationResponse(buildLocationResponse(site.getLocation()))
-                .addressResponse(buildAddressResponse(site.getAddress()))
-                .ownersResponse(site.getOwners().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
-                .currentRegistrationResponse(buildRegistrationResponse(site.getCurrentRegistration()))
+                .locationResponse(buildLocationResponse(site.getLocationEntity()))
+                .addressResponse(buildAddressResponse(site.getAddressEntity()))
+                .ownersResponse(site.getOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .currentRegistrationResponse(buildRegistrationResponse(site.getCurrentRegistrationEntity()))
                 .build();
     }
 
-    private static RegistrationResponse buildRegistrationResponse(Registration registration) {
+    private static RegistrationResponse buildRegistrationResponse(RegistrationEntity registrationEntity) {
         return RegistrationResponse.builder()
-                .id(registration.getId())
-                .identifier(registration.getIdentifier())
-                .registrationDateTime(registration.getRegistrationDateTime())
-                .currentOwnerResponses(registration.getCurrentOwners().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
-                .previousOwnerResponses(registration.getPreviousOwners().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .id(registrationEntity.getId())
+                .identifier(registrationEntity.getIdentifier())
+                .registrationDateTime(registrationEntity.getRegistrationDateTime())
+                .currentOwnerResponses(registrationEntity.getCurrentOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .previousOwnerResponses(registrationEntity.getPreviousOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .build();
     }
 
-    private static OwnerResponse buildOwnerResponse(Owner owner) {
+    private static OwnerResponse buildOwnerResponse(OwnerEntity ownerEntity) {
         return OwnerResponse.builder()
-                .id(owner.getId())
-                .identity(owner.getIdentity())
-                .firstName(owner.getFirstName())
-                .middleName(owner.getMiddleName())
-                .lastName(owner.getLastName())
-                .primaryAddress(buildAddressResponse(owner.getPrimaryAddress()))
-                .PermanentAddress(buildAddressResponse(owner.getPermanentAddress()))
-                .order(owner.getOrder())
+                .id(ownerEntity.getId())
+                .identityEntity(ownerEntity.getIdentityEntity())
+                .firstName(ownerEntity.getFirstName())
+                .middleName(ownerEntity.getMiddleName())
+                .lastName(ownerEntity.getLastName())
+                .primaryAddress(buildAddressResponse(ownerEntity.getPrimaryAddressEntity()))
+                .PermanentAddress(buildAddressResponse(ownerEntity.getPermanentAddressEntity()))
+                .order(ownerEntity.getOrder())
                 .build();
     }
 
-    private static AddressResponse buildAddressResponse(Address address) {
+    private static AddressResponse buildAddressResponse(AddressEntity addressEntity) {
         return AddressResponse.builder()
-                .id(address.getId())
-                .number(address.getNumber())
-                .name(address.getName())
-                .floor(address.getFloor())
-                .street(address.getStreet())
-                .place(address.getPlace())
-                .city(address.getCity())
-                .state(address.getState())
-                .country(address.getCountry())
-                .pinCode(address.getPinCode())
+                .id(addressEntity.getId())
+                .number(addressEntity.getNumber())
+                .name(addressEntity.getName())
+                .floor(addressEntity.getFloor())
+                .street(addressEntity.getStreet())
+                .place(addressEntity.getPlace())
+                .city(addressEntity.getCity())
+                .state(addressEntity.getState())
+                .country(addressEntity.getCountry())
+                .pinCode(addressEntity.getPinCode())
                 .build();
     }
 
-    private static LocationResponse buildLocationResponse(Location location) {
+    private static LocationResponse buildLocationResponse(LocationEntity locationEntity) {
         return LocationResponse.builder()
-                .id(location.getId())
-                .latitude(location.getLatitude())
-                .longitude(location.getLongitude())
-                .border(location.getBorder().stream().map(EntityToResponseMapper::buildLocationResponse).toList())
+                .id(locationEntity.getId())
+                .latitude(locationEntity.getLatitude())
+                .longitude(locationEntity.getLongitude())
+                .border(locationEntity.getBorder().stream().map(EntityToResponseMapper::buildLocationResponse).toList())
                 .build();
     }
 

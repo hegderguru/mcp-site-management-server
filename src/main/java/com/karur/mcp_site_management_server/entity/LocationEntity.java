@@ -11,9 +11,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Location {
+public class LocationEntity {
     private Long id;
     private Long longitude;
     private Long latitude;
-    private List<Location> border;
+    private List<LocationEntity> border;
 }

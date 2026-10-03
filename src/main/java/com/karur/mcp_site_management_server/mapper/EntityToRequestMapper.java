@@ -13,57 +13,57 @@ public class EntityToRequestMapper {
                 .identifier(site.getIdentifier())
                 .name(site.getName())
                 .number(site.getNumber())
-                .locationRequest(buildLocationRequest(site.getLocation()))
-                .addressRequest(buildAddressRequest(site.getAddress()))
-                .ownersRequests(site.getOwners().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
-                .currentRegistrationRequest(buildRegistrationRequest(site.getCurrentRegistration()))
+                .locationRequest(buildLocationRequest(site.getLocationEntity()))
+                .addressRequest(buildAddressRequest(site.getAddressEntity()))
+                .ownersRequests(site.getOwnerEntities().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
+                .currentRegistrationRequest(buildRegistrationRequest(site.getCurrentRegistrationEntity()))
                 .build();
     }
 
-    private static RegistrationRequest buildRegistrationRequest(Registration registration) {
+    private static RegistrationRequest buildRegistrationRequest(RegistrationEntity registrationEntity) {
         return RegistrationRequest.builder()
-                .id(registration.getId())
-                .identifier(registration.getIdentifier())
-                .registrationDateTime(registration.getRegistrationDateTime())
-                .currentOwnerRequests(registration.getCurrentOwners().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
-                .previousOwnerRequests(registration.getPreviousOwners().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
+                .id(registrationEntity.getId())
+                .identifier(registrationEntity.getIdentifier())
+                .registrationDateTime(registrationEntity.getRegistrationDateTime())
+                .currentOwnerRequests(registrationEntity.getCurrentOwnerEntities().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
+                .previousOwnerRequests(registrationEntity.getPreviousOwnerEntities().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
                 .build();
     }
 
-    private static OwnerRequest buildOwnerRequest(Owner owner) {
+    private static OwnerRequest buildOwnerRequest(OwnerEntity ownerEntity) {
         return OwnerRequest.builder()
-                .id(owner.getId())
-                .identity(owner.getIdentity())
-                .firstName(owner.getFirstName())
-                .middleName(owner.getMiddleName())
-                .lastName(owner.getLastName())
-                .primaryAddress(buildAddressRequest(owner.getPrimaryAddress()))
-                .PermanentAddress(buildAddressRequest(owner.getPermanentAddress()))
-                .order(owner.getOrder())
+                .id(ownerEntity.getId())
+                .identityEntity(ownerEntity.getIdentityEntity())
+                .firstName(ownerEntity.getFirstName())
+                .middleName(ownerEntity.getMiddleName())
+                .lastName(ownerEntity.getLastName())
+                .primaryAddress(buildAddressRequest(ownerEntity.getPrimaryAddressEntity()))
+                .PermanentAddress(buildAddressRequest(ownerEntity.getPermanentAddressEntity()))
+                .order(ownerEntity.getOrder())
                 .build();
     }
 
-    private static AddressRequest buildAddressRequest(Address address) {
+    private static AddressRequest buildAddressRequest(AddressEntity addressEntity) {
         return AddressRequest.builder()
-                .id(address.getId())
-                .number(address.getNumber())
-                .name(address.getName())
-                .floor(address.getFloor())
-                .street(address.getStreet())
-                .place(address.getPlace())
-                .city(address.getCity())
-                .state(address.getState())
-                .country(address.getCountry())
-                .pinCode(address.getPinCode())
+                .id(addressEntity.getId())
+                .number(addressEntity.getNumber())
+                .name(addressEntity.getName())
+                .floor(addressEntity.getFloor())
+                .street(addressEntity.getStreet())
+                .place(addressEntity.getPlace())
+                .city(addressEntity.getCity())
+                .state(addressEntity.getState())
+                .country(addressEntity.getCountry())
+                .pinCode(addressEntity.getPinCode())
                 .build();
     }
 
-    private static LocationRequest buildLocationRequest(Location location) {
+    private static LocationRequest buildLocationRequest(LocationEntity locationEntity) {
         return LocationRequest.builder()
-                .id(location.getId())
-                .latitude(location.getLatitude())
-                .longitude(location.getLongitude())
-                .border(location.getBorder().stream().map(EntityToRequestMapper::buildLocationRequest).toList())
+                .id(locationEntity.getId())
+                .latitude(locationEntity.getLatitude())
+                .longitude(locationEntity.getLongitude())
+                .border(locationEntity.getBorder().stream().map(EntityToRequestMapper::buildLocationRequest).toList())
                 .build();
     }
 
