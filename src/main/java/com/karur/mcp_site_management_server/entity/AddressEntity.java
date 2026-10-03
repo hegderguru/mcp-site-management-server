@@ -24,4 +24,16 @@ public class AddressEntity {
     private String state;
     private String country;
     private String pinCode;
+
+    // Inverse side of OwnerEntity's primaryAddressEntity mapping
+    @OneToOne(mappedBy = "primaryAddressEntity")
+    private OwnerEntity ownerAsPrimary;
+
+    // Inverse side of OwnerEntity's permanentAddressEntity mapping
+    @OneToOne(mappedBy = "permanentAddressEntity")
+    private OwnerEntity ownerAsPermanent;
+
+    // Inverse side of SiteEntity's addressEntity mapping
+    @OneToOne(mappedBy = "addressEntity")
+    private SiteEntity site;
 }

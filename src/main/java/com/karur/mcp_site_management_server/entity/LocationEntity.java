@@ -14,9 +14,14 @@ public class LocationEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_seq_gen")
     @SequenceGenerator(name = "location_seq_gen", sequenceName = "location_sequence", allocationSize = 1)
     private Long id;
+
     private Long longitude;
     private Long latitude;
 
     @Column(columnDefinition = "TEXT")
     private String border;
+
+    // Inverse side of SiteEntity's locationEntity mapping
+    @OneToOne(mappedBy = "locationEntity")
+    private SiteEntity site;
 }
