@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class RegistrationRequest {
 
-    @DiffId
     private Long id;
+    @DiffId
     private String identifier;
     private LocalDateTime registrationDateTime;
     private List<OwnerRequest> currentOwnerRequests;

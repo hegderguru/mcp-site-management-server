@@ -18,7 +18,9 @@ public class RegistrationEntity {
     @SequenceGenerator(name = "registration_seq_gen", sequenceName = "registration_sequence_id", allocationSize = 1)
     private Long id;
 
+    @Column(unique = true)
     private String identifier;
+
     private LocalDateTime registrationDateTime;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -37,7 +39,6 @@ public class RegistrationEntity {
     )
     private List<SiteEntity> siteEntities;
 
-    // Converted to Unidirectional: Maps the relationship without mappedBy by creating a 'registration_id' column inside the 'registration_audit' table.
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "registration_id")
     private List<RegistrationAuditEntity> registrationAuditEntities;

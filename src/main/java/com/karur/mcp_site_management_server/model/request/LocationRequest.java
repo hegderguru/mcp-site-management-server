@@ -11,9 +11,11 @@ import java.util.List;
 @NoArgsConstructor
 public class LocationRequest {
 
-    @DiffId
     private Long id;
+    @DiffId
     private Long longitude;
+    @DiffId
     private Long latitude;
+
     private String border;
 }

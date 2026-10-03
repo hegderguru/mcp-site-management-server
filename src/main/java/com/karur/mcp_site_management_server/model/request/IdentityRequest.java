@@ -10,9 +10,10 @@ import lombok.*;
 @NoArgsConstructor
 public class IdentityRequest {
 
-    @DiffId
     private Long id;
     private String aadhar;
+
+    @DiffId
     private String panCard;
     private String idName;
     private String idValue;

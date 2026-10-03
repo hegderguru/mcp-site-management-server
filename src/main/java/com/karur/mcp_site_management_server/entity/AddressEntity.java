@@ -10,12 +10,14 @@ import lombok.*;
 @Entity
 @Table(name = "address")
 public class AddressEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq_gen")
     @SequenceGenerator(name = "address_seq_gen", sequenceName = "address_sequence_id", allocationSize = 1)
     private Long id;
 
     private String number;
+
     private String name;
     private String floor;
     private String street;

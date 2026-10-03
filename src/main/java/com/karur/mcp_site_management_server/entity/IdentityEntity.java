@@ -16,7 +16,10 @@ public class IdentityEntity {
     private Long id;
 
     private String aadhar;
+
+    @Column(unique = true)
     private String panCard;
+
     private String idName;
     private String idValue;
 }

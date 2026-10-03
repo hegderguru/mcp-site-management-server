@@ -19,6 +19,7 @@ public class RegistrationAuditEntity {
     private Long id;
 
     private String identifier;
+
     private LocalDateTime registrationDateTime;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

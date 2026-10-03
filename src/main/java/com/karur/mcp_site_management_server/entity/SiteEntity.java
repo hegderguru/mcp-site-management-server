@@ -16,7 +16,9 @@ public class SiteEntity {
     @SequenceGenerator(name = "site_seq_gen", sequenceName = "site_sequence_id", allocationSize = 1)
     private Long id;
 
+    @Column(unique = true)
     private String identifier;
+
     private String number;
     private String name;
 

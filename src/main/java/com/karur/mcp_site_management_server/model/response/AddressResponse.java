@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressResponse {
     private Long id;
+    private String uniqueIdentifier;
     private String number;
     private String name;
     private String floor;

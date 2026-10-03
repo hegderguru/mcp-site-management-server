@@ -1,6 +1,7 @@
 package com.karur.mcp_site_management_server.model.request;
 
 import com.karur.mcp_site_management_server.compare.DiffId;
+import jakarta.persistence.Column;
 import lombok.*;
 
 
@@ -10,9 +11,9 @@ import lombok.*;
 @NoArgsConstructor
 public class AddressRequest {
 
-    @DiffId
     private Long id;
 
+    @DiffId
     private String number;
     private String name;
     private String floor;

@@ -12,13 +12,14 @@ import java.util.List;
 @NoArgsConstructor
 public class SiteRequest {
 
-    @DiffId
     private Long id;
+
+    @DiffId
     private String identifier;
+
     private String number;
     private String name;
     private LocationRequest locationRequest;
     private AddressRequest addressRequest;
-    private List<OwnerRequest> ownersRequests;
     private RegistrationRequest currentRegistrationRequest;
 }

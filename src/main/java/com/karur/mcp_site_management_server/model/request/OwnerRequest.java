@@ -11,15 +11,16 @@ import lombok.*;
 @NoArgsConstructor
 public class OwnerRequest {
 
-    @DiffId
     private Long id;
+    @DiffId
     private String firstName;
+    @DiffId
     private String middleName;
+    @DiffId
     private String lastName;
     private AddressRequest primaryAddress;
     private AddressRequest PermanentAddress;
     private Integer order;
 
-
-    private IdentityEntity identityEntity;
+    private IdentityRequest identityRequest;
 }
