@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 public class LocationResponse {
     private Long id;
-    private Long longitude;
-    private Long latitude;
+    private String longitudeAndLatitude;
     private String border;
 }
