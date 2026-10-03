@@ -17,17 +17,8 @@ public class SiteService {
         return siteRepository.findByIdentifier(identifier);
     }
 
-    public void update(SiteRequest siteRequest){
-        if(Objects.isNull(siteRequest)){
-            throw new IllegalArgumentException("Invalid request");
-        }
-        Optional<SiteEntity> siteEntityOptional = findSiteEntityByIdentifier(siteRequest.getIdentifier());
-        if(siteEntityOptional.isEmpty()){
-            createSite(siteRequest);
-        }
-        else {
-            updateSite(siteRequest,siteEntityOptional.get());
-        }
+    public void update(SiteRequest siteRequest) {
+
     }
 
     private void updateSite(SiteRequest siteRequest, SiteEntity siteEntity) {
