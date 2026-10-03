@@ -34,6 +34,14 @@ public class RegistrationEntity {
     )
     private List<OwnerEntity> currentOwnerEntities;
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "registration_sites",
+            joinColumns = @JoinColumn(name = "registration_id"), // Points to registration table
+            inverseJoinColumns = @JoinColumn(name = "site_id")        // Points to site table
+    )
+    private List<SiteEntity> siteEntities;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "registration_id")
     private List<RegistrationAuditEntity> registrationAuditEntities;

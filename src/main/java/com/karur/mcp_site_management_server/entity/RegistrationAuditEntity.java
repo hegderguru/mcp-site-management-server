@@ -28,6 +28,14 @@ public class RegistrationAuditEntity {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
+            name = "registration_audit_sites",
+            joinColumns = @JoinColumn(name = "audit_id"),    // Points to registration_audit table
+            inverseJoinColumns = @JoinColumn(name = "site_id")    // Points to site table
+    )
+    private List<SiteEntity> siteEntities;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
             name = "registration_audit_owners",
             joinColumns = @JoinColumn(name = "audit_id"),   // Points to registration_audit table
             inverseJoinColumns = @JoinColumn(name = "owner_id") // Points to owner table
