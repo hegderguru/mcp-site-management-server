@@ -2,6 +2,7 @@ package com.karur.mcp_site_management_server.mapper;
 
 import com.karur.mcp_site_management_server.entity.*;
 import com.karur.mcp_site_management_server.model.response.*;
+import com.karur.mcp_site_management_server.util.CommonUtil;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,9 +25,9 @@ public class EntityToResponseMapper {
                 .id(registrationEntity.getId())
                 .identifier(registrationEntity.getIdentifier())
                 .registrationDateTime(registrationEntity.getRegistrationDateTime())
-                .currentOwnerResponses(registrationEntity.getCurrentOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
-                .siteResponses(registrationEntity.getSiteEntities().stream().map(EntityToResponseMapper::buildSiteResponse).toList())
-                .registrationAuditResponses(registrationEntity.getRegistrationAuditEntities().stream().map(EntityToResponseMapper::buildRegistrationAuditResponse).toList())
+                .currentOwnerResponses(CommonUtil.returnElseEmpty(registrationEntity.getCurrentOwnerEntities()).stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .siteResponses(CommonUtil.returnElseEmpty(registrationEntity.getSiteEntities()).stream().map(EntityToResponseMapper::buildSiteResponse).toList())
+                .registrationAuditResponses(CommonUtil.returnElseEmpty(registrationEntity.getRegistrationAuditEntities()).stream().map(EntityToResponseMapper::buildRegistrationAuditResponse).toList())
                 .build();
     }
 
@@ -35,8 +36,8 @@ public class EntityToResponseMapper {
                 .id(registrationAuditEntity.getId())
                 .identifier(registrationAuditEntity.getIdentifier())
                 .registrationDateTime(registrationAuditEntity.getRegistrationDateTime())
-                .siteResponses(registrationAuditEntity.getSiteEntities().stream().map(EntityToResponseMapper::buildSiteResponse).toList())
-                .previousOwnerResponses(registrationAuditEntity.getPreviousOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .siteResponses(CommonUtil.returnElseEmpty(registrationAuditEntity.getSiteEntities()).stream().map(EntityToResponseMapper::buildSiteResponse).toList())
+                .previousOwnerResponses(CommonUtil.returnElseEmpty(registrationAuditEntity.getPreviousOwnerEntities()).stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .build();
     }
 
