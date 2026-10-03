@@ -9,8 +9,13 @@ import lombok.*;
 @NoArgsConstructor
 public class IdentityRequest {
     private Long id;
+
+    @EqualsAndHashCode.Include
     private String aadhar;
+
+    @EqualsAndHashCode.Include
     private String panCard;
+
     private String idName;
     private String idValue;
 }
