@@ -18,7 +18,7 @@ public class RegistrationEntity {
     @SequenceGenerator(name = "registration_seq_gen", sequenceName = "registration_sequence_id", allocationSize = 1)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true,insertable = true,updatable = false)
     private String identifier;
 
     private LocalDateTime registrationDateTime;
