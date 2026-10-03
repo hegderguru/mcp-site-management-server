@@ -21,9 +21,18 @@ public class OwnerEntity {
     private String lastName;
     private String email;
     private String phone;
+
+    @Column(insertable = true, updatable = false)
     private String aadhar;
+
+    @Column(insertable = true, updatable = false)
     private String panCard;
+
+    @Column(insertable = true, updatable = false)
     private String idNameAndValue;
+
+    @Column(insertable = true, updatable = false)
+    private String orgRegNumber;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "primary_address_id")

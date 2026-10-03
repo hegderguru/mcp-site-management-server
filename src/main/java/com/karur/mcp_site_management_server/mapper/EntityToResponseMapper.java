@@ -51,6 +51,7 @@ public class EntityToResponseMapper {
                 .phone(ownerEntity.getPhone())
                 .aadhar(ownerEntity.getAadhar())
                 .idNameAndValue(ownerEntity.getIdNameAndValue())
+                .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressResponse(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressResponse(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())

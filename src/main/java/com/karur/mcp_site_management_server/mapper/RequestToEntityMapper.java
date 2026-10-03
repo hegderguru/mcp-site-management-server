@@ -36,6 +36,7 @@ public class RequestToEntityMapper {
                 .panCard(ownerRequest.getPanCard())
                 .aadhar(ownerRequest.getAadhar())
                 .idNameAndValue(ownerRequest.getIdNameAndValue())
+                .orgRegNumber(ownerRequest.getOrgRegNumber())
                 .lastName(ownerRequest.getLastName())
                 .order(ownerRequest.getOrder())
                 .build();

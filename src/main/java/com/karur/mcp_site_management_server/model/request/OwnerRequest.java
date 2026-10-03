@@ -20,13 +20,10 @@ public class OwnerRequest {
     private String lastName;
     private String email;
     private String phone;
-
-    @Column(insertable = true, updatable = false)
     private String aadhar;
-    @Column(insertable = true, updatable = false)
     private String panCard;
-    @Column(insertable = true, updatable = false)
     private String idNameAndValue;
+    private String orgRegNumber;
 
     private AddressRequest primaryAddress;
     private AddressRequest PermanentAddress;

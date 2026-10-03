@@ -40,6 +40,7 @@ public class EntityToRequestMapper {
                 .phone(ownerEntity.getPhone())
                 .panCard(ownerEntity.getPanCard())
                 .idNameAndValue(ownerEntity.getIdNameAndValue())
+                .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressRequest(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressRequest(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())

@@ -19,6 +19,7 @@ public class OwnerResponse {
     private String aadhar;
     private String panCard;
     private String idNameAndValue;
+    private String orgRegNumber;
 
     private AddressResponse primaryAddress;
     private AddressResponse PermanentAddress;
