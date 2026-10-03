@@ -18,12 +18,20 @@ public class SiteService {
     }
 
     public void update(SiteRequest siteRequest) {
+        Optional<SiteEntity> siteEntityOptional = findSiteEntityByIdentifier(siteRequest.getIdentifier());
+        if(siteEntityOptional.isPresent()){
+            update(siteRequest,siteEntityOptional.get());
+        }
+        else {
+            create(siteRequest);
+        }
+    }
+
+    private void update(SiteRequest siteRequest,SiteEntity siteEntity) {
 
     }
 
-    private void updateSite(SiteRequest siteRequest, SiteEntity siteEntity) {
-    }
+    private void create(SiteRequest siteRequest) {
 
-    private void createSite(SiteRequest siteRequest) {
     }
 }
