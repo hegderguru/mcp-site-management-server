@@ -20,9 +20,9 @@ public class RegistrationRequest {
     private LocalDateTime registrationDateTime;
 
     @EqualsAndHashCode.Include
-    private List<OwnerRequest> previousOwnerRequests;
+    private List<OwnerRequest> currentOwnerRequests;
 
     @EqualsAndHashCode.Include
-    private List<OwnerRequest> currentOwnerRequests;
+    private List<SiteRequest> siteRequests;
 }
 
