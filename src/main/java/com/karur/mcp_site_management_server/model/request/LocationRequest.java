@@ -12,5 +12,5 @@ public class LocationRequest {
     private Long id;
     private Long longitude;
     private Long latitude;
-    private List<LocationRequest> border;
+    private String border;
 }

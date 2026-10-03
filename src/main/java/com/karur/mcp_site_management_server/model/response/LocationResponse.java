@@ -15,5 +15,5 @@ public class LocationResponse {
     private Long id;
     private Long longitude;
     private Long latitude;
-    private List<LocationResponse> border;
+    private String border;
 }
