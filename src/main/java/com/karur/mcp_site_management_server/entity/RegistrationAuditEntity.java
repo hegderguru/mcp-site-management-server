@@ -1,14 +1,9 @@
 package com.karur.mcp_site_management_server.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
-
 
 @Builder
 @Data
@@ -24,21 +19,22 @@ public class RegistrationAuditEntity {
     private Long id;
 
     private String identifier;
+
     private LocalDateTime registrationDateTime;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_audit_sites",
-            joinColumns = @JoinColumn(name = "audit_id"),    // Points to registration_audit table
-            inverseJoinColumns = @JoinColumn(name = "site_id")    // Points to site table
+            joinColumns = @JoinColumn(name = "audit_id"),
+            inverseJoinColumns = @JoinColumn(name = "site_id")
     )
     private List<SiteEntity> siteEntities;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_audit_owners",
-            joinColumns = @JoinColumn(name = "audit_id"),   // Points to registration_audit table
-            inverseJoinColumns = @JoinColumn(name = "owner_id") // Points to owner table
+            joinColumns = @JoinColumn(name = "audit_id"),
+            inverseJoinColumns = @JoinColumn(name = "owner_id")
     )
-    private List<OwnerEntity> currentOwnerEntities;
+    private List<OwnerEntity> previousOwnerEntities;
 }
