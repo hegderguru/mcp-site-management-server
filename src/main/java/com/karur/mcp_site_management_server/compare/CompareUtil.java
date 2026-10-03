@@ -178,9 +178,6 @@ public class CompareUtil {
     }
 
 
-
-
-
     //Verified
     private static void addAllCollectionsToChanges(Object leftParent, Object rightParent, List<Change> changes, Collection<?> left, Collection<?> right, Field field) {
         int index = 0;
