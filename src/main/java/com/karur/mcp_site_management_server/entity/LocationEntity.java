@@ -20,8 +20,4 @@ public class LocationEntity {
 
     @Column(columnDefinition = "TEXT")
     private String border;
-
-    // Inverse side of SiteEntity's locationEntity mapping
-    @OneToOne(mappedBy = "locationEntity")
-    private SiteEntity site;
 }
