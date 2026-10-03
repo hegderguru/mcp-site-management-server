@@ -15,7 +15,6 @@ public class RequestToEntityMapper {
                 .number(siteRequest.getNumber())
                 .locationEntity(buildLocation(siteRequest.getLocationRequest()))
                 .addressEntity(buildAddress(siteRequest.getAddressRequest()))
-                .ownerEntities(siteRequest.getOwnersRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
                 .currentRegistrationEntity(buildRegistration(siteRequest.getCurrentRegistrationRequest()))
                 .build();
     }
@@ -26,7 +25,7 @@ public class RequestToEntityMapper {
                 .identifier(registrationRequest.getIdentifier())
                 .registrationDateTime(registrationRequest.getRegistrationDateTime())
                 .currentOwnerEntities(registrationRequest.getCurrentOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
-                .previousOwnerEntities(registrationRequest.getPreviousOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
+                .siteEntities(registrationRequest.getSiteRequests().stream().map(RequestToEntityMapper::buildSite).toList())
                 .build();
     }
 
