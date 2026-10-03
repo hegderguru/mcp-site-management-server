@@ -1,4 +1,4 @@
-package com.karur.mcp_site_management_server.mapper.util;
+package com.karur.mcp_site_management_server.mapper;
 
 import com.karur.mcp_site_management_server.entity.*;
 import com.karur.mcp_site_management_server.model.request.*;
