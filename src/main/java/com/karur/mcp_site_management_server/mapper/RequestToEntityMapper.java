@@ -2,6 +2,7 @@ package com.karur.mcp_site_management_server.mapper;
 
 import com.karur.mcp_site_management_server.entity.*;
 import com.karur.mcp_site_management_server.model.request.*;
+import com.karur.mcp_site_management_server.util.CommonUtil;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,8 +25,8 @@ public class RequestToEntityMapper {
                 .id(registrationRequest.getId())
                 .identifier(registrationRequest.getIdentifier())
                 .registrationDateTime(registrationRequest.getRegistrationDateTime())
-                .currentOwnerEntities(registrationRequest.getCurrentOwnerRequests().stream().map(RequestToEntityMapper::buildOwner).toList())
-                .siteEntities(registrationRequest.getSiteRequests().stream().map(RequestToEntityMapper::buildSite).toList())
+                .currentOwnerEntities(CommonUtil.returnElseEmpty(registrationRequest.getCurrentOwnerRequests()).stream().map(RequestToEntityMapper::buildOwner).toList())
+                .siteEntities(CommonUtil.returnElseEmpty(registrationRequest.getSiteRequests()).stream().map(RequestToEntityMapper::buildSite).toList())
                 .build();
     }
 
