@@ -19,5 +19,6 @@ public class RegistrationResponse {
     private LocalDateTime registrationDateTime;
     private List<OwnerResponse> currentOwnerResponses;
     private List<SiteResponse> siteResponses;
+    private List<RegistrationAuditResponse> registrationAuditResponses;
 }
 
