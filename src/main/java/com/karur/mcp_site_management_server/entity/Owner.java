@@ -15,7 +15,5 @@ public class Owner {
     private Address primaryAddress;
     private Address PermanentAddress;
     private Integer order;
-
-    @EqualsAndHashCode.Include
     private Identity identity;
 }
