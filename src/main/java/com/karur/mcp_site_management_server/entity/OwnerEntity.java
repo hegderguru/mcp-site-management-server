@@ -13,7 +13,7 @@ public class OwnerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "owner_seq_gen")
-    @SequenceGenerator(name = "owner_seq_gen", sequenceName = "owner_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "owner_seq_gen", sequenceName = "owner_sequence_id", allocationSize = 1)
     private Long id;
 
     private String firstName;

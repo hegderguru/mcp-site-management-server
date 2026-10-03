@@ -12,7 +12,7 @@ import lombok.*;
 public class AddressEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq_gen")
-    @SequenceGenerator(name = "address_seq_gen", sequenceName = "address_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "address_seq_gen", sequenceName = "address_sequence_id", allocationSize = 1)
     private Long id;
 
     private String number;

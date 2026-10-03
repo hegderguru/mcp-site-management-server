@@ -13,7 +13,7 @@ public class SiteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "site_seq_gen")
-    @SequenceGenerator(name = "site_seq_gen", sequenceName = "site_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "site_seq_gen", sequenceName = "site_sequence_id", allocationSize = 1)
     private Long id;
 
     private String identifier;

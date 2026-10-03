@@ -12,7 +12,7 @@ import lombok.*;
 public class LocationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_seq_gen")
-    @SequenceGenerator(name = "location_seq_gen", sequenceName = "location_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "location_seq_gen", sequenceName = "location_sequence_id", allocationSize = 1)
     private Long id;
 
     private Long longitude;

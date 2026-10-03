@@ -15,7 +15,7 @@ public class RegistrationAuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "registration_audit_seq_gen")
-    @SequenceGenerator(name = "registration_audit_seq_gen", sequenceName = "registration_audit_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "registration_audit_seq_gen", sequenceName = "registration_audit_sequence_id", allocationSize = 1)
     private Long id;
 
     private String identifier;

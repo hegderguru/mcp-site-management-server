@@ -1,20 +1,20 @@
 -- =========================================================================
 -- 1. CREATE SEQUENCES
 -- =========================================================================
-CREATE SEQUENCE address_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE identity_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE location_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE owner_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE site_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE registration_sequence START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE registration_audit_sequence START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE address_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE identity_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE location_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE owner_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE site_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE registration_sequence_id START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE registration_audit_sequence_id START WITH 1 INCREMENT BY 1;
 
 -- =========================================================================
 -- 2. CREATE PRIMARY DATA TABLES
 -- =========================================================================
 
 CREATE TABLE address (
-                         id BIGINT PRIMARY KEY DEFAULT nextval('address_sequence'),
+                         id BIGINT PRIMARY KEY DEFAULT nextval('address_sequence_id'),
                          number VARCHAR(255),
                          name VARCHAR(255),
                          floor VARCHAR(255),
@@ -27,7 +27,7 @@ CREATE TABLE address (
 );
 
 CREATE TABLE identity (
-                          id BIGINT PRIMARY KEY DEFAULT nextval('identity_sequence'),
+                          id BIGINT PRIMARY KEY DEFAULT nextval('identity_sequence_id'),
                           aadhar VARCHAR(255),
                           pan_card VARCHAR(255),
                           id_name VARCHAR(255),
@@ -35,14 +35,14 @@ CREATE TABLE identity (
 );
 
 CREATE TABLE location (
-                          id BIGINT PRIMARY KEY DEFAULT nextval('location_sequence'),
+                          id BIGINT PRIMARY KEY DEFAULT nextval('location_sequence_id'),
                           longitude BIGINT,
                           latitude BIGINT,
                           border TEXT
 );
 
 CREATE TABLE owner (
-                       id BIGINT PRIMARY KEY DEFAULT nextval('owner_sequence'),
+                       id BIGINT PRIMARY KEY DEFAULT nextval('owner_sequence_id'),
                        first_name VARCHAR(255),
                        middle_name VARCHAR(255),
                        last_name VARCHAR(255),
@@ -56,13 +56,13 @@ CREATE TABLE owner (
 );
 
 CREATE TABLE registration (
-                              id BIGINT PRIMARY KEY DEFAULT nextval('registration_sequence'),
+                              id BIGINT PRIMARY KEY DEFAULT nextval('registration_sequence_id'),
                               identifier VARCHAR(255),
                               registration_date_time TIMESTAMP
 );
 
 CREATE TABLE site (
-                      id BIGINT PRIMARY KEY DEFAULT nextval('site_sequence'),
+                      id BIGINT PRIMARY KEY DEFAULT nextval('site_sequence_id'),
                       identifier VARCHAR(255),
                       number VARCHAR(255),
                       name VARCHAR(255),
@@ -75,7 +75,7 @@ CREATE TABLE site (
 );
 
 CREATE TABLE registration_audit (
-                                    id BIGINT PRIMARY KEY DEFAULT nextval('registration_audit_sequence'),
+                                    id BIGINT PRIMARY KEY DEFAULT nextval('registration_audit_sequence_id'),
                                     identifier VARCHAR(255),
                                     registration_date_time TIMESTAMP,
                                     registration_id BIGINT, -- Handled by unidirectional @OneToMany @JoinColumn

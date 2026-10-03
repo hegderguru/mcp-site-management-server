@@ -12,7 +12,7 @@ import lombok.*;
 public class IdentityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "identity_seq_gen")
-    @SequenceGenerator(name = "identity_seq_gen", sequenceName = "identity_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "identity_seq_gen", sequenceName = "identity_sequence_id", allocationSize = 1)
     private Long id;
 
     private String aadhar;
