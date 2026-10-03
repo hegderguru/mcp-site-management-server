@@ -11,7 +11,6 @@ import java.util.List;
 public class Site {
     private Long id;
 
-    @EqualsAndHashCode.Include
     private String identifier;
 
     private String number;
