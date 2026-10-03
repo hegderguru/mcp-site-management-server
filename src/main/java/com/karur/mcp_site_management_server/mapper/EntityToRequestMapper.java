@@ -33,13 +33,23 @@ public class EntityToRequestMapper {
     private static OwnerRequest buildOwnerRequest(OwnerEntity ownerEntity) {
         return OwnerRequest.builder()
                 .id(ownerEntity.getId())
-                .identityEntity(ownerEntity.getIdentityEntity())
+                .identityRequest(buildIdentityRequest(ownerEntity.getIdentityEntity()))
                 .firstName(ownerEntity.getFirstName())
                 .middleName(ownerEntity.getMiddleName())
                 .lastName(ownerEntity.getLastName())
                 .primaryAddress(buildAddressRequest(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressRequest(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())
+                .build();
+    }
+
+    private static IdentityRequest buildIdentityRequest(IdentityEntity identityEntity) {
+        return IdentityRequest.builder()
+                .id(identityEntity.getId())
+                .aadhar(identityEntity.getAadhar())
+                .panCard(identityEntity.getPanCard())
+                .idName(identityEntity.getIdName())
+                .idValue(identityEntity.getIdValue())
                 .build();
     }
 
