@@ -15,7 +15,6 @@ public class EntityToResponseMapper {
                 .number(siteEntity.getNumber())
                 .locationResponse(buildLocationResponse(siteEntity.getLocationEntity()))
                 .addressResponse(buildAddressResponse(siteEntity.getAddressEntity()))
-                .ownersResponse(siteEntity.getOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .currentRegistrationResponse(buildRegistrationResponse(siteEntity.getCurrentRegistrationEntity()))
                 .build();
     }
@@ -26,7 +25,7 @@ public class EntityToResponseMapper {
                 .identifier(registrationEntity.getIdentifier())
                 .registrationDateTime(registrationEntity.getRegistrationDateTime())
                 .currentOwnerResponses(registrationEntity.getCurrentOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
-                .previousOwnerResponses(registrationEntity.getPreviousOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .siteResponses(registrationEntity.getSiteEntities().stream().map(EntityToResponseMapper::buildSiteResponse).toList())
                 .build();
     }
 

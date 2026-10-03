@@ -17,7 +17,7 @@ public class RegistrationResponse {
     private Long id;
     private String identifier;
     private LocalDateTime registrationDateTime;
-    private List<OwnerResponse> previousOwnerResponses;
     private List<OwnerResponse> currentOwnerResponses;
+    private List<SiteResponse> siteResponses;
 }
 
