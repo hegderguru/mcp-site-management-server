@@ -63,7 +63,7 @@ public class EntityToResponseMapper {
                 .id(locationEntity.getId())
                 .latitude(locationEntity.getLatitude())
                 .longitude(locationEntity.getLongitude())
-                .border(locationEntity.getBorder().stream().map(EntityToResponseMapper::buildLocationResponse).toList())
+                .border(locationEntity.getBorder())
                 .build();
     }
 
