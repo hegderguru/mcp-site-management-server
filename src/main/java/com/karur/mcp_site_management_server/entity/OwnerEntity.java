@@ -2,6 +2,7 @@ package com.karur.mcp_site_management_server.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Builder
 @Data
@@ -17,22 +18,31 @@ public class OwnerEntity {
     private Long id;
 
     private String firstName;
-
     private String middleName;
-
     private String lastName;
 
+    // Owning side (holds foreign key column)
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "primary_address_id")
     private AddressEntity primaryAddressEntity;
 
+    // Owning side (holds foreign key column)
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "permanent_address_id")
     private AddressEntity permanentAddressEntity;
 
     private Integer order;
 
+    // Owning side (holds foreign key column)
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "identity_id")
     private IdentityEntity identityEntity;
+
+    // Inverse side of RegistrationEntity's currentOwnerEntities list
+    @ManyToMany(mappedBy = "currentOwnerEntities")
+    private List<RegistrationEntity> registrations;
+
+    // Inverse side of RegistrationAuditEntity's previousOwnerEntities list
+    @ManyToMany(mappedBy = "previousOwnerEntities")
+    private List<RegistrationAuditEntity> registrationAudits;
 }
