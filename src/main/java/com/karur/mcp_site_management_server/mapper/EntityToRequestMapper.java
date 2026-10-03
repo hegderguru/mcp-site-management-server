@@ -7,16 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class EntityToRequestMapper {
 
-    public static SiteRequest buildSiteRequest(Site site) {
+    public static SiteRequest buildSiteRequest(SiteEntity siteEntity) {
         return SiteRequest.builder()
-                .id(site.getId())
-                .identifier(site.getIdentifier())
-                .name(site.getName())
-                .number(site.getNumber())
-                .locationRequest(buildLocationRequest(site.getLocationEntity()))
-                .addressRequest(buildAddressRequest(site.getAddressEntity()))
-                .ownersRequests(site.getOwnerEntities().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
-                .currentRegistrationRequest(buildRegistrationRequest(site.getCurrentRegistrationEntity()))
+                .id(siteEntity.getId())
+                .identifier(siteEntity.getIdentifier())
+                .name(siteEntity.getName())
+                .number(siteEntity.getNumber())
+                .locationRequest(buildLocationRequest(siteEntity.getLocationEntity()))
+                .addressRequest(buildAddressRequest(siteEntity.getAddressEntity()))
+                .ownersRequests(siteEntity.getOwnerEntities().stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
+                .currentRegistrationRequest(buildRegistrationRequest(siteEntity.getCurrentRegistrationEntity()))
                 .build();
     }
 
