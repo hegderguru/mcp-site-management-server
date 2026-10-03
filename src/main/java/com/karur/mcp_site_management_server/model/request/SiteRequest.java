@@ -1,19 +1,19 @@
 package com.karur.mcp_site_management_server.model.request;
 
-import com.karur.mcp_site_management_server.entity.Registration;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SiteRequest {
+
     private Long id;
+
+    @EqualsAndHashCode.Include
     private String identifier;
     private String number;
     private String name;
