@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class RequestToEntityMapper {
 
-    public static Site buildSite(SiteRequest siteRequest) {
-        return Site.builder()
+    public static SiteEntity buildSite(SiteRequest siteRequest) {
+        return SiteEntity.builder()
                 .id(siteRequest.getId())
                 .identifier(siteRequest.getIdentifier())
                 .name(siteRequest.getName())

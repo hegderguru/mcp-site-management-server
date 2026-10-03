@@ -7,16 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class EntityToResponseMapper {
 
-    public static SiteResponse buildSiteResponse(Site site) {
+    public static SiteResponse buildSiteResponse(SiteEntity siteEntity) {
         return SiteResponse.builder()
-                .id(site.getId())
-                .identifier(site.getIdentifier())
-                .name(site.getName())
-                .number(site.getNumber())
-                .locationResponse(buildLocationResponse(site.getLocationEntity()))
-                .addressResponse(buildAddressResponse(site.getAddressEntity()))
-                .ownersResponse(site.getOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
-                .currentRegistrationResponse(buildRegistrationResponse(site.getCurrentRegistrationEntity()))
+                .id(siteEntity.getId())
+                .identifier(siteEntity.getIdentifier())
+                .name(siteEntity.getName())
+                .number(siteEntity.getNumber())
+                .locationResponse(buildLocationResponse(siteEntity.getLocationEntity()))
+                .addressResponse(buildAddressResponse(siteEntity.getAddressEntity()))
+                .ownersResponse(siteEntity.getOwnerEntities().stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
+                .currentRegistrationResponse(buildRegistrationResponse(siteEntity.getCurrentRegistrationEntity()))
                 .build();
     }
 
