@@ -21,7 +21,6 @@ public class RegistrationEntity {
     private String identifier;
     private LocalDateTime registrationDateTime;
 
-    // Owning side (defines the join table)
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_current_owners",
@@ -30,7 +29,6 @@ public class RegistrationEntity {
     )
     private List<OwnerEntity> currentOwnerEntities;
 
-    // Owning side (defines the join table)
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "registration_sites",
@@ -39,11 +37,8 @@ public class RegistrationEntity {
     )
     private List<SiteEntity> siteEntities;
 
-    // Owning side of the OneToMany (points to mappedBy target 'registration' field in child)
-    @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    // Converted to Unidirectional: Maps the relationship without mappedBy by creating a 'registration_id' column inside the 'registration_audit' table.
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "registration_id")
     private List<RegistrationAuditEntity> registrationAuditEntities;
-
-    // Inverse side of SiteEntity's currentRegistrationEntity mapping
-    @OneToOne(mappedBy = "currentRegistrationEntity")
-    private SiteEntity activeSite;
 }
