@@ -29,11 +29,20 @@ public class RequestToEntityMapper {
     private static OwnerEntity buildOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
-                .identityEntity(ownerRequest.getIdentityEntity())
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
                 .lastName(ownerRequest.getLastName())
                 .order(ownerRequest.getOrder())
+                .build();
+    }
+
+    private static IdentityEntity buildIdentityEntity(IdentityRequest identityRequest) {
+        return IdentityEntity.builder()
+                .id(identityRequest.getId())
+                .aadhar(identityRequest.getAadhar())
+                .panCard(identityRequest.getPanCard())
+                .idName(identityRequest.getIdName())
+                .idValue(identityRequest.getIdValue())
                 .build();
     }
 
@@ -87,13 +96,23 @@ public class RequestToEntityMapper {
     private static OwnerEntity buildCompleteOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
-                .identityEntity(ownerRequest.getIdentityEntity())
+                .identityEntity(buildIdentityEntity(ownerRequest.getIdentityRequest()))
                 .firstName(ownerRequest.getFirstName())
                 .middleName(ownerRequest.getMiddleName())
                 .lastName(ownerRequest.getLastName())
                 .primaryAddressEntity(buildCompleteAddress(ownerRequest.getPrimaryAddress()))
                 .permanentAddressEntity(buildCompleteAddress(ownerRequest.getPermanentAddress()))
                 .order(ownerRequest.getOrder())
+                .build();
+    }
+
+    private static IdentityEntity buildCompleteIdentityEntity(IdentityRequest identityRequest) {
+        return IdentityEntity.builder()
+                .id(identityRequest.getId())
+                .aadhar(identityRequest.getAadhar())
+                .panCard(identityRequest.getPanCard())
+                .idName(identityRequest.getIdName())
+                .idValue(identityRequest.getIdValue())
                 .build();
     }
 
