@@ -8,11 +8,16 @@ import java.util.List;
 
 public class UpdateUtil {
 
-    public <T> void update(List<T> exitingList, T update){
+    public <T> boolean existsIn(List<T> list, T check) {
+        return list.stream().anyMatch(t -> t.equals(check));
+    }
+
+    public <T> void update(List<T> exitingList, T update) {
         List<T> list = exitingList.stream().filter(t -> t.equals(update)).toList();
-        if(list.size()>1){
+        if (list.size() > 1) {
             throw new RuntimeException("duplicates found for %s".formatted(CommonUtil.toString(update)));
         }
+        update(list.get(0), update);
     }
 
     public <T> void update(T existing, T update) {
