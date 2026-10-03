@@ -1,5 +1,6 @@
 package com.karur.mcp_site_management_server.model.request;
 
+import com.karur.mcp_site_management_server.compare.DiffId;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,18 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegistrationRequest {
+
+    @DiffId
     private Long id;
-
-
     private String identifier;
-
-
     private LocalDateTime registrationDateTime;
-
-
     private List<OwnerRequest> currentOwnerRequests;
-
-
     private List<SiteRequest> siteRequests;
 }
 

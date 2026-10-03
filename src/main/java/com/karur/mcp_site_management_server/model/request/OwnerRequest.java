@@ -1,5 +1,6 @@
 package com.karur.mcp_site_management_server.model.request;
 
+import com.karur.mcp_site_management_server.compare.DiffId;
 import com.karur.mcp_site_management_server.entity.IdentityEntity;
 import lombok.*;
 
@@ -9,6 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OwnerRequest {
+
+    @DiffId
     private Long id;
     private String firstName;
     private String middleName;
