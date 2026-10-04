@@ -1,4 +1,4 @@
-package com.karur.mcp_site_management_server.mvpTool;
+package com.karur.mcp_site_management_server.mcpTool;
 
 import com.karur.mcp_site_management_server.entity.SiteEntity;
 import com.karur.mcp_site_management_server.mapper.EntityToResponseMapper;
