@@ -4,7 +4,6 @@ services:
     image: postgres:latest
     container_name: mcp-site-management-server-db
     environment:
-      POSTGRES_DB: asset
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       # FORCE IT TO USE THE OLD PATH FORMAT

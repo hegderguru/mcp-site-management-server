@@ -11,7 +11,7 @@ database:
     leak-detection-threshold: 2000
   postgres:
     asset:
-      schema: asset
+      schema: site
       package-names:
         datasource: assetDatasource
         namedParameterJdbcTemplate: assetNamedParameterJdbcTemplate
