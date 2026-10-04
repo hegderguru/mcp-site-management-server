@@ -1,5 +1,40 @@
 server:
   port: 9501
+
+database:
+  default-hikari-properties:
+    minimum-idle: 1
+    maximum-pool-size: 2
+    connection-timeout: 5000
+    idle-timeout: 15000
+    max-lifetime: 60000
+    leak-detection-threshold: 2000
+  postgres:
+    asset:
+      schema: asset
+      package-names:
+        datasource: assetDatasource
+        namedParameterJdbcTemplate: assetNamedParameterJdbcTemplate
+        containerEntityManagerFactory: assetContainerEntityManagerFactory
+        platformTransactionManager: assetPlatformTransactionManager
+        entity: com.karur.mcp_site_management_server.entity
+        repository: com.karur.mcp_site_management_server.repository
+      # --- UPDATED LINE BELOW ---
+      jdbc-url: jdbc:postgresql://localhost:5001/asset
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        schema: asset
+        connection-test-query: SELECT 1
+      jpa:
+        show-sql : true
+        properties:
+          hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            format_sql: true
+
 spring:
   application:
     name: mcp-site-management-server
