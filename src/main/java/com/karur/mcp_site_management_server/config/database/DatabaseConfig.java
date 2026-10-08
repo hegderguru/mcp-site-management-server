@@ -10,8 +10,8 @@ public class DatabaseConfig {
     @Configuration
     @EnableJpaRepositories(
             basePackages = "com.karur.mcp_site_management_server.repository",
-            entityManagerFactoryRef = "assetContainerEntityManagerFactory",
-            transactionManagerRef = "assetPlatformTransactionManager"
+            entityManagerFactoryRef = "siteContainerEntityManagerFactory",
+            transactionManagerRef = "sitePlatformTransactionManager"
     )
-    public static class AssetDatabaseConfig{}
+    public static class SiteDatabaseConfig {}
 }

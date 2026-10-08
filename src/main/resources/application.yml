@@ -10,22 +10,22 @@ database:
     max-lifetime: 60000
     leak-detection-threshold: 2000
   postgres:
-    asset:
+    site:
       schema: site
       package-names:
-        datasource: assetDatasource
-        namedParameterJdbcTemplate: assetNamedParameterJdbcTemplate
-        containerEntityManagerFactory: assetContainerEntityManagerFactory
-        platformTransactionManager: assetPlatformTransactionManager
+        datasource: siteDatasource
+        namedParameterJdbcTemplate: siteNamedParameterJdbcTemplate
+        containerEntityManagerFactory: siteContainerEntityManagerFactory
+        platformTransactionManager: sitePlatformTransactionManager
         entity: com.karur.mcp_site_management_server.entity
         repository: com.karur.mcp_site_management_server.repository
       # --- UPDATED LINE BELOW ---
-      jdbc-url: jdbc:postgresql://localhost:5001/asset
+      jdbc-url: jdbc:postgresql://localhost:5001/site
       username: postgres
       password: postgres
       driver-class-name: org.postgresql.Driver
       hikari:
-        schema: asset
+        schema: site
         connection-test-query: SELECT 1
       jpa:
         show-sql : true
