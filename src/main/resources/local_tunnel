@@ -1,0 +1,12 @@
+sudo npm install -g localtunnel
+lt --port 9000
+
+nohup lt --port 9000 > localtunnel.log 2>&1 &
+nohup lt --port 9000 > localtunnel.log 2>&1 &
+
+cat localtunnel.log
+
+
+lt --port 3000 --subdomain my-frontend & lt --port 8000 --subdomain my-backend &
+
+https://five-things-wait.loca.lt

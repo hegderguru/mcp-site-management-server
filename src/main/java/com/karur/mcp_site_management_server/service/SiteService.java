@@ -39,6 +39,7 @@ public class SiteService {
     private void update(SiteRequest siteRequest,SiteEntity siteEntity) {
         List<CompareUtil.Change> changes = CompareUtil.compare(siteRequest, EntityToRequestMapper.buildSiteRequest(siteEntity));
 
+
     }
 
     public Mono<SiteResponse> create(SiteRequest siteRequest) {
