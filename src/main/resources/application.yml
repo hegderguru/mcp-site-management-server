@@ -20,9 +20,9 @@ database:
         entity: com.karur.mcp_site_management_server.entity
         repository: com.karur.mcp_site_management_server.repository
       # --- UPDATED LINE BELOW ---
-      jdbc-url: jdbc:postgresql://localhost:5001/site
-      username: postgres
-      password: postgres
+      jdbc-url: jdbc:postgresql://localhost:9001/postgres
+      username: site_admin
+      password: Gunitha@2906
       driver-class-name: org.postgresql.Driver
       hikari:
         schema: site
