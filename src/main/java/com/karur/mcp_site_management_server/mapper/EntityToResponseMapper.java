@@ -23,7 +23,7 @@ public class EntityToResponseMapper {
     private static RegistrationResponse buildRegistrationResponse(RegistrationEntity registrationEntity) {
         return RegistrationResponse.builder()
                 .id(registrationEntity.getId())
-                .identifier(registrationEntity.getIdentifier())
+                .identifier(registrationEntity.getRegistrationNumber())
                 .registrationDateTime(registrationEntity.getRegistrationDateTime())
                 .currentOwnerResponses(CommonUtil.returnElseEmpty(registrationEntity.getCurrentOwnerEntities()).stream().map(EntityToResponseMapper::buildOwnerResponse).toList())
                 .siteResponses(CommonUtil.returnElseEmpty(registrationEntity.getSiteEntities()).stream().map(EntityToResponseMapper::buildSiteResponse).toList())

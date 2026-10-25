@@ -22,7 +22,7 @@ public class RequestToEntityMapper {
     private static RegistrationEntity buildRegistration(RegistrationRequest registrationRequest) {
         return RegistrationEntity.builder()
                 .id(registrationRequest.getId())
-                .identifier(registrationRequest.getIdentifier())
+                .registrationNumber(registrationRequest.getIdentifier())
                 .registrationDateTime(registrationRequest.getRegistrationDateTime())
                 .build();
     }
@@ -89,7 +89,7 @@ public class RequestToEntityMapper {
     private static RegistrationEntity buildCompleteRegistration(RegistrationRequest registrationRequest) {
         return RegistrationEntity.builder()
                 .id(registrationRequest.getId())
-                .identifier(registrationRequest.getIdentifier())
+                .registrationNumber(registrationRequest.getIdentifier())
                 .registrationDateTime(registrationRequest.getRegistrationDateTime())
                 .currentOwnerEntities(CommonUtil.returnElseEmpty(registrationRequest.getCurrentOwnerRequests()).stream().map(RequestToEntityMapper::buildCompleteOwner).toList())
                 .siteEntities(CommonUtil.returnElseEmpty(registrationRequest.getSiteRequests()).stream().map(RequestToEntityMapper::buildCompleteSite).toList())

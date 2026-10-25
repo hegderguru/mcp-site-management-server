@@ -19,7 +19,7 @@ public class RegistrationEntity {
     private Long id;
 
     @Column(unique = true,insertable = true,updatable = false)
-    private String identifier;
+    private String registrationNumber;
 
     private LocalDateTime registrationDateTime;
 

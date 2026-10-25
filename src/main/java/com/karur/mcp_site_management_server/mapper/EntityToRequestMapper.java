@@ -23,7 +23,7 @@ public class EntityToRequestMapper {
     private static RegistrationRequest buildRegistrationRequest(RegistrationEntity registrationEntity) {
         return RegistrationRequest.builder()
                 .id(registrationEntity.getId())
-                .identifier(registrationEntity.getIdentifier())
+                .identifier(registrationEntity.getRegistrationNumber())
                 .registrationDateTime(registrationEntity.getRegistrationDateTime())
                 .currentOwnerRequests(CommonUtil.returnElseEmpty(registrationEntity.getCurrentOwnerEntities()).stream().map(EntityToRequestMapper::buildOwnerRequest).toList())
                 .siteRequests(CommonUtil.returnElseEmpty(registrationEntity.getSiteEntities()).stream().map(EntityToRequestMapper::buildSiteRequest).toList())
