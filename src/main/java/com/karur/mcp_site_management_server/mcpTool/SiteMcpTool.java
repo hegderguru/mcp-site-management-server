@@ -5,6 +5,7 @@ import com.karur.mcp_site_management_server.mapper.EntityToResponseMapper;
 import com.karur.mcp_site_management_server.model.request.SiteRequest;
 import com.karur.mcp_site_management_server.model.response.SiteResponse;
 import com.karur.mcp_site_management_server.service.SiteService;
+import com.karur.mcp_site_management_server.util.CommonUtil;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.context.McpAsyncRequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,23 @@ public class SiteMcpTool {
 
     @McpTool(name = "create-site", description = "Add new site")
     public Mono<SiteResponse> createSite(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
-        return siteService.create(siteRequest);
+        return mcpAsyncRequestContext.info("Request Received %s".formatted(CommonUtil.toString(siteRequest)))
+                .then(siteService.create(siteRequest));
     }
 
     @McpTool(name = "fetch-site-by-idetifier")
     public Mono<SiteResponse> fetchSiteByIdentifier(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
-        Optional<SiteEntity> siteEntity = siteService.findSiteEntityByIdentifier(siteRequest.getIdentifier());
-        return Mono.defer(() -> Mono.just(EntityToResponseMapper.buildSiteResponse(siteEntity.get())));
+        return mcpAsyncRequestContext.info("Request Received %s".formatted(CommonUtil.toString(siteRequest)))
+                .flatMap(unused -> {
+                    Optional<SiteEntity> siteEntity = siteService.findSiteEntityByIdentifier(siteRequest.getIdentifier());
+                    return Mono.defer(() -> Mono.just(EntityToResponseMapper.buildSiteResponse(siteEntity.get())));
+                });
+
     }
 
     @McpTool(name = "register-site", description = "Register site")
     public Mono<SiteResponse> registerSite(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
-        return siteService.registerSite(siteRequest);
+        return mcpAsyncRequestContext.info("Request Received %s".formatted(CommonUtil.toString(siteRequest)))
+                .then(siteService.registerSite(siteRequest));
     }
 }
