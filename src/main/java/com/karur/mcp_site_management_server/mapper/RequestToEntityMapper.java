@@ -1,6 +1,7 @@
 package com.karur.mcp_site_management_server.mapper;
 
 import com.karur.mcp_site_management_server.entity.*;
+import com.karur.mcp_site_management_server.model.UniqueIdentityEnum;
 import com.karur.mcp_site_management_server.model.request.*;
 import com.karur.mcp_site_management_server.util.CommonUtil;
 import org.springframework.stereotype.Component;
@@ -33,12 +34,19 @@ public class RequestToEntityMapper {
                 .middleName(ownerRequest.getMiddleName())
                 .email(ownerRequest.getEmail())
                 .phone(ownerRequest.getPhone())
-                .panCard(ownerRequest.getPanCard())
-                .aadhar(ownerRequest.getAadhar())
-                .idNameAndValue(ownerRequest.getIdNameAndValue())
+                .uniqueIdentityEntities(ownerRequest.getUniqueIdentityRequests().stream()
+                        .map(RequestToEntityMapper::buildUniqueIdentityEntity).toList())
                 .orgRegNumber(ownerRequest.getOrgRegNumber())
                 .lastName(ownerRequest.getLastName())
                 .order(ownerRequest.getOrder())
+                .build();
+    }
+
+    private static UniqueIdentityEntity buildUniqueIdentityEntity(UniqueIdentityRequest uniqueIdentityRequest) {
+        return UniqueIdentityEntity
+                .builder()
+                .uniqueIdentityEnum(UniqueIdentityEnum.valueOf(uniqueIdentityRequest.getUniqueIdentity()))
+                .uniqueIdentityValue(uniqueIdentityRequest.getUniqueIdentityValue())
                 .build();
     }
 
@@ -96,9 +104,8 @@ public class RequestToEntityMapper {
                 .lastName(ownerRequest.getLastName())
                 .email(ownerRequest.getEmail())
                 .phone(ownerRequest.getPhone())
-                .aadhar(ownerRequest.getAadhar())
-                .panCard(ownerRequest.getPanCard())
-                .idNameAndValue(ownerRequest.getIdNameAndValue())
+                .uniqueIdentityEntities(ownerRequest.getUniqueIdentityRequests().stream()
+                        .map(RequestToEntityMapper::buildUniqueIdentityEntity).toList())
                 .primaryAddressEntity(buildCompleteAddress(ownerRequest.getPrimaryAddress()))
                 .permanentAddressEntity(buildCompleteAddress(ownerRequest.getPermanentAddress()))
                 .order(ownerRequest.getOrder())

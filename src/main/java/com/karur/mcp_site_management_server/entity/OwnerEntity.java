@@ -3,6 +3,8 @@ package com.karur.mcp_site_management_server.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -22,14 +24,9 @@ public class OwnerEntity {
     private String email;
     private String phone;
 
-    @Column(insertable = true, updatable = false)
-    private String aadhar;
-
-    @Column(insertable = true, updatable = false)
-    private String panCard;
-
-    @Column(insertable = true, updatable = false)
-    private String idNameAndValue;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private List<UniqueIdentityEntity> uniqueIdentityEntities;
 
     @Column(insertable = true, updatable = false)
     private String orgRegNumber;

@@ -38,12 +38,19 @@ public class EntityToRequestMapper {
                 .lastName(ownerEntity.getLastName())
                 .email(ownerEntity.getEmail())
                 .phone(ownerEntity.getPhone())
-                .panCard(ownerEntity.getPanCard())
-                .idNameAndValue(ownerEntity.getIdNameAndValue())
+                .uniqueIdentityRequests(ownerEntity.getUniqueIdentityEntities().stream().map(EntityToRequestMapper::buildUniqueIdentityRequest).toList())
                 .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressRequest(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressRequest(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())
+                .build();
+    }
+
+    private static UniqueIdentityRequest buildUniqueIdentityRequest(UniqueIdentityEntity uniqueIdentityEntity) {
+        return UniqueIdentityRequest.builder()
+                .id(uniqueIdentityEntity.getId())
+                .uniqueIdentity(uniqueIdentityEntity.getUniqueIdentityEnum().getIdentity())
+                .uniqueIdentityValue(uniqueIdentityEntity.getUniqueIdentityValue())
                 .build();
     }
 

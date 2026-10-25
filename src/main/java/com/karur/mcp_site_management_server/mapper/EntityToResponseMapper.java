@@ -49,12 +49,19 @@ public class EntityToResponseMapper {
                 .lastName(ownerEntity.getLastName())
                 .email(ownerEntity.getEmail())
                 .phone(ownerEntity.getPhone())
-                .aadhar(ownerEntity.getAadhar())
-                .idNameAndValue(ownerEntity.getIdNameAndValue())
+                .uniqueIdentityResponses(ownerEntity.getUniqueIdentityEntities().stream().map(EntityToResponseMapper::buildUniqueIdentityResponse).toList())
                 .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressResponse(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressResponse(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())
+                .build();
+    }
+
+    private static UniqueIdentityResponse buildUniqueIdentityResponse(UniqueIdentityEntity uniqueIdentityEntity) {
+        return UniqueIdentityResponse.builder()
+                .id(uniqueIdentityEntity.getId())
+                .uniqueIdentity(uniqueIdentityEntity.getUniqueIdentityEnum().getIdentity())
+                .uniqueIdentityValue(uniqueIdentityEntity.getUniqueIdentityValue())
                 .build();
     }
 

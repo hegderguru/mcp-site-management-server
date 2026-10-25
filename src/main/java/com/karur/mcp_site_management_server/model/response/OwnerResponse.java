@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -16,9 +18,7 @@ public class OwnerResponse {
     private String lastName;
     private String email;
     private String phone;
-    private String aadhar;
-    private String panCard;
-    private String idNameAndValue;
+    private List<UniqueIdentityResponse> uniqueIdentityResponses;
     private String orgRegNumber;
 
     private AddressResponse primaryAddress;

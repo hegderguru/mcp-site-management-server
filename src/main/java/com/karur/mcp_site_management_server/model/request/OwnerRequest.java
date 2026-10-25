@@ -4,6 +4,8 @@ import com.karur.mcp_site_management_server.compare.DiffId;
 import jakarta.persistence.Column;
 import lombok.*;
 
+import java.util.List;
+
 
 @Builder
 @Data
@@ -20,9 +22,8 @@ public class OwnerRequest {
     private String lastName;
     private String email;
     private String phone;
-    private String aadhar;
-    private String panCard;
-    private String idNameAndValue;
+
+    private List<UniqueIdentityRequest> uniqueIdentityRequests;
     private String orgRegNumber;
 
     private AddressRequest primaryAddress;
