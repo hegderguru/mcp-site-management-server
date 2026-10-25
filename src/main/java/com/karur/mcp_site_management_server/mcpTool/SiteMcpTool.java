@@ -19,7 +19,7 @@ public class SiteMcpTool {
     @Autowired
     SiteService siteService;
 
-    @McpTool(name = "create-site", description = "Add nrw site")
+    @McpTool(name = "create-site", description = "Add new site")
     public Mono<SiteResponse> createSite(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
         return siteService.create(siteRequest);
     }
@@ -28,5 +28,10 @@ public class SiteMcpTool {
     public Mono<SiteResponse> fetchSiteByIdentifier(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
         Optional<SiteEntity> siteEntity = siteService.findSiteEntityByIdentifier(siteRequest.getIdentifier());
         return Mono.defer(() -> Mono.just(EntityToResponseMapper.buildSiteResponse(siteEntity.get())));
+    }
+
+    @McpTool(name = "register-site", description = "Register site")
+    public Mono<SiteResponse> registerSite(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
+        return siteService.registerSite(siteRequest);
     }
 }

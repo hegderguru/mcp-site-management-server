@@ -34,7 +34,7 @@ public class EntityToResponseMapper {
     private static RegistrationAuditResponse buildRegistrationAuditResponse(RegistrationAuditEntity registrationAuditEntity) {
         return RegistrationAuditResponse.builder()
                 .id(registrationAuditEntity.getId())
-                .identifier(registrationAuditEntity.getIdentifier())
+                .identifier(registrationAuditEntity.getRegistrationNumber())
                 .registrationDateTime(registrationAuditEntity.getRegistrationDateTime())
                 .siteResponses(CommonUtil.returnElseEmpty(registrationAuditEntity.getSiteEntities()).stream().map(EntityToResponseMapper::buildSiteResponse).toList())
                 .previousOwnerResponses(CommonUtil.returnElseEmpty(registrationAuditEntity.getPreviousOwnerEntities()).stream().map(EntityToResponseMapper::buildOwnerResponse).toList())

@@ -19,7 +19,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static RegistrationEntity buildRegistration(RegistrationRequest registrationRequest) {
+    public static RegistrationEntity buildRegistrationEntity(RegistrationRequest registrationRequest) {
         return RegistrationEntity.builder()
                 .id(registrationRequest.getId())
                 .registrationNumber(registrationRequest.getIdentifier())
@@ -27,7 +27,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static OwnerEntity buildOwner(OwnerRequest ownerRequest) {
+    public static OwnerEntity buildOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
                 .firstName(ownerRequest.getFirstName())
@@ -41,7 +41,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static UniqueIdentityEntity buildUniqueIdentityEntity(UniqueIdentityRequest uniqueIdentityRequest) {
+    public static UniqueIdentityEntity buildUniqueIdentityEntity(UniqueIdentityRequest uniqueIdentityRequest) {
         return UniqueIdentityEntity
                 .builder()
                 .uniqueIdentityEnum(UniqueIdentityEnum.valueOf(uniqueIdentityRequest.getUniqueIdentity()))
@@ -49,7 +49,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static AddressEntity buildAddress(AddressRequest addressRequest) {
+    public static AddressEntity buildAddress(AddressRequest addressRequest) {
         return AddressEntity.builder()
                 .id(addressRequest.getId())
                 .number(addressRequest.getNumber())
@@ -64,11 +64,20 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static LocationEntity buildLocation(LocationRequest locationRequest) {
+    public static LocationEntity buildLocation(LocationRequest locationRequest) {
         return LocationEntity.builder()
                 .id(locationRequest.getId())
                 .longitudeAndLatitude(locationRequest.getLongitudeAndLatitude())
                 .border(locationRequest.getBorder())
+                .build();
+    }
+
+    public static RegistrationAuditEntity buildRegistrationAuditEntity(RegistrationEntity registrationEntity) {
+        return RegistrationAuditEntity.builder()
+                .registrationNumber(registrationEntity.getRegistrationNumber())
+                .registrationDateTime(registrationEntity.getRegistrationDateTime())
+                .previousOwnerEntities(registrationEntity.getCurrentOwnerEntities())
+                .siteEntities(registrationEntity.getSiteEntities())
                 .build();
     }
 
@@ -85,7 +94,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static RegistrationEntity buildCompleteRegistration(RegistrationRequest registrationRequest) {
+    public static RegistrationEntity buildCompleteRegistration(RegistrationRequest registrationRequest) {
         return RegistrationEntity.builder()
                 .id(registrationRequest.getId())
                 .registrationNumber(registrationRequest.getIdentifier())
@@ -95,7 +104,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static OwnerEntity buildCompleteOwner(OwnerRequest ownerRequest) {
+    public static OwnerEntity buildCompleteOwner(OwnerRequest ownerRequest) {
         return OwnerEntity.builder()
                 .id(ownerRequest.getId())
                 .firstName(ownerRequest.getFirstName())
@@ -111,7 +120,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static AddressEntity buildCompleteAddress(AddressRequest addressRequest) {
+    public static AddressEntity buildCompleteAddress(AddressRequest addressRequest) {
         return AddressEntity.builder()
                 .id(addressRequest.getId())
                 .number(addressRequest.getNumber())
@@ -126,7 +135,7 @@ public class RequestToEntityMapper {
                 .build();
     }
 
-    private static LocationEntity buildCompleteLocation(LocationRequest locationRequest) {
+    public static LocationEntity buildCompleteLocation(LocationRequest locationRequest) {
         return LocationEntity.builder()
                 .id(locationRequest.getId())
                 .longitudeAndLatitude(locationRequest.getLongitudeAndLatitude())

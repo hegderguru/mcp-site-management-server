@@ -18,7 +18,7 @@ public class RegistrationAuditEntity {
     @SequenceGenerator(name = "registration_audit_seq_gen", sequenceName = "registration_audit_sequence_id", allocationSize = 1)
     private Long id;
 
-    private String identifier;
+    private String registrationNumber;
 
     private LocalDateTime registrationDateTime;
 
