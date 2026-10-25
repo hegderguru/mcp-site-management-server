@@ -36,7 +36,6 @@ public class RequestToEntityMapper {
                 .phone(ownerRequest.getPhone())
                 .uniqueIdentityEntities(ownerRequest.getUniqueIdentityRequests().stream()
                         .map(RequestToEntityMapper::buildUniqueIdentityEntity).toList())
-                .orgRegNumber(ownerRequest.getOrgRegNumber())
                 .lastName(ownerRequest.getLastName())
                 .order(ownerRequest.getOrder())
                 .build();

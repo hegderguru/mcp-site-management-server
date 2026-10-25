@@ -28,9 +28,6 @@ public class OwnerEntity {
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private List<UniqueIdentityEntity> uniqueIdentityEntities;
 
-    @Column(insertable = true, updatable = false)
-    private String orgRegNumber;
-
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "primary_address_id")
     private AddressEntity primaryAddressEntity;

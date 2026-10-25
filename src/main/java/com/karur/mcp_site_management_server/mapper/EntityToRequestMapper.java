@@ -39,7 +39,6 @@ public class EntityToRequestMapper {
                 .email(ownerEntity.getEmail())
                 .phone(ownerEntity.getPhone())
                 .uniqueIdentityRequests(ownerEntity.getUniqueIdentityEntities().stream().map(EntityToRequestMapper::buildUniqueIdentityRequest).toList())
-                .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressRequest(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressRequest(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())

@@ -50,7 +50,6 @@ public class EntityToResponseMapper {
                 .email(ownerEntity.getEmail())
                 .phone(ownerEntity.getPhone())
                 .uniqueIdentityResponses(ownerEntity.getUniqueIdentityEntities().stream().map(EntityToResponseMapper::buildUniqueIdentityResponse).toList())
-                .orgRegNumber(ownerEntity.getOrgRegNumber())
                 .primaryAddress(buildAddressResponse(ownerEntity.getPrimaryAddressEntity()))
                 .PermanentAddress(buildAddressResponse(ownerEntity.getPermanentAddressEntity()))
                 .order(ownerEntity.getOrder())

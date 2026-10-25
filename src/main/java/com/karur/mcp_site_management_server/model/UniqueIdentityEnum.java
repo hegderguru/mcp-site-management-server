@@ -7,8 +7,9 @@ import lombok.Getter;
 @Getter
 public enum UniqueIdentityEnum {
 
-    AADHAR("Aadhar"),
-    PANACRD("Pan Card");
+    AADHAR_CARD("Aadhar Card"),
+    PAN_CARD("Pan Card"),
+    ORG_NUMBER("Organisation Number");
 
     String identity;
 }

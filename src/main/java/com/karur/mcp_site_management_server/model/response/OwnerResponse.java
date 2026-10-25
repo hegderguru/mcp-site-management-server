@@ -19,7 +19,6 @@ public class OwnerResponse {
     private String email;
     private String phone;
     private List<UniqueIdentityResponse> uniqueIdentityResponses;
-    private String orgRegNumber;
 
     private AddressResponse primaryAddress;
     private AddressResponse PermanentAddress;

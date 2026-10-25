@@ -24,7 +24,6 @@ public class OwnerRequest {
     private String phone;
 
     private List<UniqueIdentityRequest> uniqueIdentityRequests;
-    private String orgRegNumber;
 
     private AddressRequest primaryAddress;
     private AddressRequest PermanentAddress;
