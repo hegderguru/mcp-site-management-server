@@ -25,7 +25,7 @@ public class SiteMcpTool {
     }
 
     @McpTool(name = "fetch-site-by-idetifier")
-    public Mono<SiteResponse> createSiteByIdentifier(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
+    public Mono<SiteResponse> fetchSiteByIdentifier(McpAsyncRequestContext mcpAsyncRequestContext, SiteRequest siteRequest) {
         Optional<SiteEntity> siteEntity = siteService.findSiteEntityByIdentifier(siteRequest.getIdentifier());
         return Mono.defer(() -> Mono.just(EntityToResponseMapper.buildSiteResponse(siteEntity.get())));
     }
